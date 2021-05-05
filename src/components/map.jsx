@@ -1,13 +1,7 @@
 import { icon } from "leaflet";
 import React from "react";
 import loactionI from "../images/icon-location.svg";
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  useMapEvents,
-} from "react-leaflet";
+import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 
 function LocationMarker(props) {
   var marker = icon({
