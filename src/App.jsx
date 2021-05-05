@@ -20,29 +20,41 @@ function App() {
         setPosition([result.location.lat, result.location.lng]);
       });
   }, [ip]);
+
+  if (ip !== "" && position.length !== 0) {
+    return (
+      <>
+        <div className="fluid-container top" style={{ height: "30vh" }}>
+          <div className="text-center text_h">IP Address Tracker</div>
+
+          <SearchBox default={ip} setIp={setIp} />
+
+          <Details detail={res} />
+        </div>
+        <Map position={position} />
+        <div class="attribution">
+          Challenge by{" "}
+          <a
+            href="https://www.frontendmentor.io?ref=challenge"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Frontend Mentor
+          </a>
+          . Coded by{" "}
+          <a href="https://www.github.com/sgoyal2402">Suryansh Goyal</a>.
+        </div>
+      </>
+    );
+  }
+
   return (
-    <>
-      <div className="fluid-container top" style={{ height: "30vh" }}>
-        <div className="text-center text_h">IP Address Tracker</div>
-
-        {ip !== "" && <SearchBox default={ip} setIp={setIp} />}
-
-        {ip !== "" && <Details detail={res} />}
-      </div>
-      {position.length !== 0 && <Map position={position} />}
-      <div class="attribution">
-        Challenge by{" "}
-        <a
-          href="https://www.frontendmentor.io?ref=challenge"
-          rel="noreferrer"
-          target="_blank"
-        >
-          Frontend Mentor
-        </a>
-        . Coded by{" "}
-        <a href="https://www.github.com/sgoyal2402">Suryansh Goyal</a>.
-      </div>
-    </>
+    <div className="container">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"
+        alt="Loading"
+      />
+    </div>
   );
 }
 

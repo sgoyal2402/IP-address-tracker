@@ -1,4 +1,6 @@
+import { icon } from "leaflet";
 import React from "react";
+import loactionI from "../images/icon-location.svg";
 import {
   MapContainer,
   TileLayer,
@@ -8,12 +10,14 @@ import {
 } from "react-leaflet";
 
 function LocationMarker(props) {
+  var marker = icon({
+    iconUrl: loactionI,
+    iconSize: [46, 56],
+  });
   const map = useMapEvents({});
   map.flyTo(props.position, map.getZoom());
   return props.position === null ? null : (
-    <Marker position={props.position}>
-      <Popup>You are here</Popup>
-    </Marker>
+    <Marker position={props.position} icon={marker}></Marker>
   );
 }
 
