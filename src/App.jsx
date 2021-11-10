@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     fetch(
-      `https://geo.ipify.org/api/v2/country?apiKey=at_WjFdwlLYKMsyCnXOl7YwohMymQqBZ&ipAddress=${ip}`
+      `https://geo.ipify.org/api/v2/country,city?apiKey=at_WjFdwlLYKMsyCnXOl7YwohMymQqBZ&ipAddress=${ip}`
     )
       .then((res) => res.json())
       .then((result) => {
@@ -54,6 +54,9 @@ function App() {
         src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"
         alt="Loading"
       />
+      {setTimeout(() => {
+        "If you see Loading for long time my quota for IPYFIY is finished."
+      }, 4000)}
     </div>
   );
 }
